@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_mrp_terms_form" model="ir.ui.view">
+        <field name="name">mrp.terms.form</field>
+        <field name="model">mrp.terms</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Terms &amp; Condition">
+                            <field name="terms_text"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mrp_terms_tree" model="ir.ui.view">
+        <field name="name">mrp.terms.tree</field>
+        <field name="model">mrp.terms</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_mrp_terms_root" name="Terms &amp; Conditions" parent="mrp.menu_mrp_root"/>
+    <menuitem id="menu_mrp_terms" name="Terms &amp; Condition" parent="menu_mrp_terms_root"/>
+    <record id="action_mrp_terms" model="ir.actions.act_window">
+        <field name="name">Terms &amp; Condition</field>
+        <field name="res_model">mrp.terms</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_mrp_terms_action" parent="menu_mrp_terms" action="action_mrp_terms"/>
+</odoo>
